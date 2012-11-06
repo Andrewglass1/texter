@@ -12,11 +12,11 @@ class Station < ActiveRecord::Base
   def response_train_times
   	response = ""
   	fetch_times[0..5].each do |train|
-  		dest     = train["DestinationCode"]
+  		dest     = train["DestinationName"]
   		line     = train["Line"]
   		arriving = train["Min"]
 
-  		response <<"#{line} to #{dest} arriving in #{arriving}    
+  		response <<"#{line} to #{dest} arriving in #{arriving}
   		"
   	end
   	response
