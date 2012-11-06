@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106055013) do
+ActiveRecord::Schema.define(:version => 20121106071830) do
 
   create_table "incoming_texts", :force => true do |t|
     t.string   "from"
@@ -23,6 +23,21 @@ ActiveRecord::Schema.define(:version => 20121106055013) do
   create_table "senders", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "stations", :force => true do |t|
+    t.string   "code"
+    t.string   "lat"
+    t.string   "lon"
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "line_3"
+    t.string   "line_4"
+    t.string   "name"
+    t.string   "station_together1"
+    t.string   "station_together2"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
 end

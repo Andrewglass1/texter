@@ -1,15 +1,13 @@
 class ReceiveTextController < ApplicationController
 
-  def receiver 
-    # let's pretend that we've mapped this action to 
-    # http://localhost:3000/sms in the routes.rb file
-    
+  def receiver     
     message_body = params["Body"]
     from_number = params["From"]
 
     if message_body && from_number
     	IncomingText.create(:from => from_number, :body => message_body)
+    	station = Station.find_by_name(message_body)
+    	Sender.send(from_number, Station.line_1)
     end
-    # SMSLogger.log_text_message from_number, message_body
   end
 end
