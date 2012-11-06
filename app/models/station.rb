@@ -16,8 +16,7 @@ class Station < ActiveRecord::Base
   		line     = train["Line"]
   		arriving = train["Min"]
 
-  		response <<"#{line} to #{dest} in #{arriving}
-  		"
+  		response <<"#{line} to #{dest} in #{arriving}, "
   	end
   	response
   end
