@@ -7,7 +7,7 @@ class ReceiveTextController < ApplicationController
     if message_body && from_number
     	IncomingText.create(:from => from_number, :body => message_body)
     	station = Station.find_by_name(message_body)
-    	Sender.send(from_number, Station.line_1)
+    	Sender.send("5165811375", station.line_1)
     end
   end
 end
