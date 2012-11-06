@@ -16,7 +16,15 @@ class Station < ActiveRecord::Base
   		line     = train["Line"]
   		arriving = train["Min"]
 
-  		response <<"#{line} to #{dest} in #{arriving}, "
+  		if arriving == "BRD"
+  			arrive = "BOARDING"
+  		elsif arriving == "ARR"
+  			arrive == "ARRIVING"
+  		else
+  			arrive = "in #{arriving} min"
+  		end
+
+  		response <<"#{line} to #{dest} #{arrive}, "
   	end
   	response
   end
