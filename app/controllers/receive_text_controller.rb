@@ -7,7 +7,9 @@ class ReceiveTextController < ApplicationController
     message_body = params["Body"]
     from_number = params["From"]
 
-    IncomingText.create(:from => from_number, :body => message_body)
+    if message_body && from_number
+    	IncomingText.create(:from => from_number, :body => message_body)
+    end
     # SMSLogger.log_text_message from_number, message_body
   end
 end
