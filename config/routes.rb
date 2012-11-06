@@ -1,7 +1,12 @@
 Texter::Application.routes.draw do
 
-  resources :receive_text
-  match 'receiver' => 'receive_text#receiver', :as => :receiver
+  resources :messages
+  post 'receiver', :to => 'messages#create'
+  resources :welcome, :only => [:index]
+  resources :responses, :only => [:index]
+
+  root :to => 'welcome#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
