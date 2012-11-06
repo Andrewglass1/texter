@@ -5,9 +5,21 @@ class Station < ActiveRecord::Base
   format :json
 
   def fetch_times
-		response = HTTParty.get("http://api.wmata.com/StationPrediction.svc/json/GetPrediction/#{self.code}", :query => {:api_key => "rpefka927ws7cy228jsrejx7"})
-  	response.parsed_response['Trains'].each do |train|
-  		puts train
-  	end
+	response = HTTParty.get("http://api.wmata.com/StationPrediction.svc/json/GetPrediction/#{self.code}", :query => {:api_key => "rpefka927ws7cy228jsrejx7"})
+  	response.parsed_response['Trains']
   end
+
+  def response_train_times
+  	response = ""
+  	fetch_times[0..5].each do |train|
+  		dest     = train["DestinationCode"]
+  		line     = train["Line"]
+  		arriving = train["Min"]
+
+  		response <<"#{line} to #{dest} arriving in #{arriving}    
+  		"
+  	end
+  	response
+  end
+
 end
