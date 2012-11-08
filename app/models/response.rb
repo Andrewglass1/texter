@@ -19,7 +19,7 @@ private
     if message.station
       self.body = message.station.train_times
     else
-      self.body = "Sorry, couldn't match a metro station"
+      self.body = "Sorry, couldn't match a metro station with #{message.body}"
     end
   end
 end
