@@ -33,7 +33,7 @@ class Station < ActiveRecord::Base
   end
 
   def self.match(input)
-    station = where(Station.arel_table[:name].matches("%#{sanitize_name(input)}%")).first
+    station = where(Station.arel_table[:name].matches("%#{input.downcase.gsub(".","")}%")).first
     station ||= Station.nickname_match(input)
   end
 
