@@ -25,7 +25,7 @@ class Station < ActiveRecord::Base
   		end
 
       if line != "" && dest != "" && arrive != "in  min"
-  		  response << "#{line} to #{dest} #{arrive}"
+  		  arrivals << "#{line} to #{dest} #{arrive}"
       end
       break if arrivals.size == max_arrivals
   	end
