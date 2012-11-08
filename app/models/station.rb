@@ -1,6 +1,8 @@
 class Station < ActiveRecord::Base
   attr_accessible :code,:lat, :lon, :line_1, :line_2, :line_3, :line_4, :name, :station_together1, :station_together2 
 
+  include ApplicationHelper
+
   include HTTParty
   format :json
 
@@ -14,19 +16,12 @@ class Station < ActiveRecord::Base
   	arrivals     = []
 
   	fetch_times.each do |train|
-  		dest     = train["DestinationName"]
   		line     = train["Line"]
+      dest     = train["DestinationName"]
   		arriving = train["Min"]
 
-      arrive = case arriving
-        when "BRD" then "BOARDING"
-  		  when "ARR" then "ARRIVING"
-  		  else "in #{arriving} min"
-  		end
+  		arrivals << train_arrival(line, dest, arriving)
 
-      if line != "" && dest != "" && arrive != "in  min"
-  		  arrivals << "#{line} to #{dest} #{arrive}"
-      end
       break if arrivals.size == max_arrivals
   	end
   	arrivals.join(", ")
@@ -48,6 +43,7 @@ class Station < ActiveRecord::Base
       Station.find_by_name("W Falls Church")
     end
   end
+
 end
 
 
