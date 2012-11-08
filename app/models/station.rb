@@ -20,11 +20,16 @@ class Station < ActiveRecord::Base
       dest     = train["DestinationName"]
   		arriving = train["Min"]
 
-  		arrivals << train_arrival(line, dest, arriving)
+      arrival = train_arrival(line, dest, arriving)
+  		arrivals << arrival if arrival
 
       break if arrivals.size == max_arrivals
   	end
-  	arrivals.join(", ")
+  	if arrivals.empty?
+      "Don't think there are any metros coming dude. Bikeshare?"
+    else
+      arrivals.join("%0a")
+    end
   end
 
   def self.match(input)
@@ -43,7 +48,22 @@ class Station < ActiveRecord::Base
       Station.find_by_name("W Falls Church")
     end
   end
+private
+  def train_arrival(line, dest, arriving)
+    valid = true
 
+    arrive = case arriving
+      when "BRD" then "BOARDING"
+      when "ARR" then "ARRIVING"
+      else "in #{arriving} min"
+    end
+
+    valid = false if ["--","No", ""].include? line
+    valid = false if ["", " ", "No Passenger"].include? dest
+    valid = false if [""].include? arriving
+
+    "#{line} to #{dest} #{arrive}" if valid
+  end
 end
 
 

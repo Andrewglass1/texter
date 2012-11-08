@@ -1,6 +1,6 @@
 Texter::Application.routes.draw do
 
-  resources :messages
+  resources :messages, :only => [:index, :create]
   post 'receiver', :to => 'messages#create'
   resources :welcome, :only => [:index]
   resources :responses, :only => [:index]
