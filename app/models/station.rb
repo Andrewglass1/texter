@@ -28,12 +28,12 @@ class Station < ActiveRecord::Base
   	if arrivals.empty?
       "Don't think there are any metros coming dude. Bikeshare?"
     else
-      arrivals.join("%0a")
+      arrivals.join(", ")
     end
   end
 
   def self.match(input)
-    station = where(Station.arel_table[:name].matches("%#{input.downcase.gsub("")}%")).first
+    station = where(Station.arel_table[:name].matches("%#{sanitize_name(input)}%")).first
     station ||= Station.nickname_match(input)
   end
 
@@ -46,9 +46,13 @@ class Station < ActiveRecord::Base
       Station.find_by_name("Dupont Circle")
     elsif ["West Falls Church"].any?{|name| name.downcase == input.downcase}
       Station.find_by_name("W Falls Church")
+    elsif ["U st", "THE U"].any?{|name| name.downcase == input.downcase}
+      Station.find_by_name("U Street")
     end
   end
+
 private
+  
   def train_arrival(line, dest, arriving)
     valid = true
 
@@ -63,6 +67,10 @@ private
     valid = false if [""].include? arriving
 
     "#{line} to #{dest} #{arrive}" if valid
+  end
+
+  def sanitize_name(input)
+    input.downcase.gsub(".","")
   end
 end
 
