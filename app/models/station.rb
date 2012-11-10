@@ -7,12 +7,13 @@ class Station < ActiveRecord::Base
   format :json
 
   def fetch_times
-	response = HTTParty.get("http://api.wmata.com/StationPrediction.svc/json/GetPrediction/#{self.code}", :query => { :api_key => $wmata_key })
-  	response.parsed_response['Trains']
+    codes = [code, station_together1, station_together2].compact.join(",")
+	  response = HTTParty.get("http://api.wmata.com/StationPrediction.svc/json/GetPrediction/#{codes}", :query => { :api_key => $wmata_key })
+    response.parsed_response['Trains']
   end
 
   def train_times
-    max_arrivals = 3
+    max_arrivals = 4
   	arrivals     = []
 
   	fetch_times.each do |train|
