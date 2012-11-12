@@ -1,4 +1,15 @@
 <h1>Responses</h1>
 
 <hr>
-<%= @responses.inspect %>
+<table>
+  <tr>
+    <th>to</th>
+    <th>body</th>
+  </tr>
+  <% @responses.each do |response| %>
+  <tr>
+    <td><%= response.to %></td>
+    <td><%= response.body %></td>
+  <tr>
+  <% end %>
+</table>

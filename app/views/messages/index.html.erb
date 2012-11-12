@@ -2,4 +2,19 @@
 
 <hr>
 
-<%= @messages.inspect %>
+<table>
+  <tr>
+    <th>from</th>
+    <th>body</th>
+    <th>station</th>
+  </tr>
+  <% @messages.each do |message| %>
+  <tr>
+    <td><%= message.from %></td>
+    <td><%= message.body %></td>
+    <td><%=message.station.present? ? message.station.name : "No Match" %></td>
+  <tr>
+  <% end %>
+</table>
+
+

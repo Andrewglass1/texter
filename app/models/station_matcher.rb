@@ -4,7 +4,6 @@ class StationMatcher
 
   def initialize(input)
     @input = input
-
   end
 
   def match
@@ -18,7 +17,7 @@ class StationMatcher
 
   def fuzzy_match(matching)
     m = Amatch::Jaro.new(@input)
-    m.match(matching) > 0.8
+    m.match(matching) > 0.9
   end
 
 end
