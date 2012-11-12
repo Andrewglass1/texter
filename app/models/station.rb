@@ -40,6 +40,8 @@ class Station < ActiveRecord::Base
       when "Mt Vernon Sq" then ["MVT", "Mt. Vernon Triangle", "Mt. Vernon Sq", "Mount Vernon Square"]
       when "U Street" then ["U st", "THE U"]
       when "W Falls Church" then ["West Falls Church"]
+      when "National Arpt" then ['Reagan national airport', 'Reagan', 'airport', 'national airport']
+      when "Virginia Square" then ["Va square"]
       else []
     end
   end

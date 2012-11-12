@@ -8,7 +8,7 @@
     <th>body</th>
     <th>station</th>
   </tr>
-  <% @messages.each do |message| %>
+  <% @messages.reverse.each do |message| %>
   <tr>
     <td><%= message.from %></td>
     <td><%= message.body %></td>

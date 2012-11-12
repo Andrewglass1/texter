@@ -6,7 +6,7 @@
     <th>to</th>
     <th>body</th>
   </tr>
-  <% @responses.each do |response| %>
+  <% @responses.reverse.each do |response| %>
   <tr>
     <td><%= response.to %></td>
     <td><%= response.body %></td>
