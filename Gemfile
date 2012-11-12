@@ -9,6 +9,7 @@ gem 'pg'
 gem 'heroku'
 gem 'twilio-ruby'
 gem 'httparty'
+gem 'amatch'
 
 
 # Gems used only for assets and not required

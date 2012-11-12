@@ -33,22 +33,14 @@ class Station < ActiveRecord::Base
     end
   end
 
-  def self.match(input)
-    station = where(Station.arel_table[:name].matches("%#{input.downcase.gsub(".","")}%")).first
-    station ||= Station.nickname_match(input)
-  end
-
-  def self.nickname_match(input)
-    if ["Chinatown/Gallery Place", "Chinatown"].any?{|name| name.downcase == input.downcase}
-      Station.find_by_name("Gallery Place")
-    elsif ["MVT", "Mt. Vernon Triangle", "Mt. Vernon Sq", "Mount Vernon Square"].any?{|name| name.downcase == input.downcase}
-      Station.find_by_name("Mt Vernon Sq")
-    elsif ["Dupont"].any?{|name| name.downcase == input.downcase}
-      Station.find_by_name("Dupont Circle")
-    elsif ["West Falls Church"].any?{|name| name.downcase == input.downcase}
-      Station.find_by_name("W Falls Church")
-    elsif ["U st", "THE U"].any?{|name| name.downcase == input.downcase}
-      Station.find_by_name("U Street")
+  def nicknames
+    case name
+      when "Dupont Circle" then ["dupont"]
+      when "Gallery Place" then ["Chinatown/Gallery Place", "Chinatown"]
+      when "Mt Vernon Sq" then ["MVT", "Mt. Vernon Triangle", "Mt. Vernon Sq", "Mount Vernon Square"]
+      when "U Street" then ["U st", "THE U"]
+      when "W Falls Church" then ["West Falls Church"]
+      else []
     end
   end
 
@@ -62,11 +54,9 @@ private
       when "ARR" then "ARRIVING"
       else "in #{arriving} min"
     end
-
     valid = false if ["--","No", ""].include? line
     valid = false if ["", " ", "No Passenger"].include? dest
     valid = false if [""].include? arriving
-
     "#{line} to #{dest} #{arrive}" if valid
   end
 

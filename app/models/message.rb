@@ -20,7 +20,7 @@ class Message < ActiveRecord::Base
 private
   def setup_station
     if self.body
-      self.station = Station.match(body)
+      self.station = StationMatcher.new(body).match
     end
   end
 end
