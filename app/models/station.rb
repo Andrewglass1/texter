@@ -35,13 +35,19 @@ class Station < ActiveRecord::Base
 
   def nicknames
     case name
-      when "Dupont Circle" then ["dupont"]
-      when "Gallery Place" then ["Chinatown/Gallery Place", "Chinatown"]
-      when "Mt Vernon Sq" then ["MVT", "Mt. Vernon Triangle", "Mt. Vernon Sq", "Mount Vernon Square"]
-      when "U Street" then ["U st", "THE U"]
-      when "W Falls Church" then ["West Falls Church"]
-      when "National Arpt" then ['Reagan national airport', 'Reagan', 'airport', 'national airport']
-      when "Virginia Square" then ["Va square"]
+      when "Dupont Circle"     then ["dupont"]
+      when "Gallery Place"     then ["Chinatown/Gallery Place", "Chinatown"]
+      when "Mt Vernon Sq"      then ["MVT", "Mt. Vernon Triangle", "Mt. Vernon Sq", "Mount Vernon Square"]
+      when "U Street"          then ["U st", "THE U"]
+      when "W Falls Church"    then ["West Falls Church"]
+      when "National Arpt"     then ['Reagan national airport', 'Reagan', 'airport', 'national airport']
+      when "Virginia Square"   then ["Va square"]
+      when "Van Ness UDC"      then ["Van Ness", "UDC"]
+      when "Largo Town Center" then ["Largo"]
+      when "Fort Totten"       then ["Ft Totten"]
+      when "Federal Center SW" then ["Federal Center"]
+      when "Woodley Park Zoo"  then ["Woodley", "Woodley Park", "Zoo", "Admo", "Adams Morgan"]
+
       else []
     end
   end
