@@ -1,3 +1,20 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+body              { padding-bottom: 20px; background-color: #04C; background-image: url("http://i.imgur.com/iN3kg.jpg"); background-size: 100%; background-repeat: no-repeat;}
+
+#content-holder   { width: 870px; height: 200px;}
+#welcome-hero     { margin-top: 150px; margin: 110px auto 0 auto; float: none; position: relative;}
+#welcome-hero p   { margin-top: 20px; margin-bottom: 20px;}
+#use-content      { display: none;}
+#text-content     { display: none;}
+#contact-content  { display: none;}
+
+#submit-number    { margin-bottom: 10px;}
+#andy             { position: absolute; bottom: 0px; left: 0px; margin-left: 10px;}
+#buttons li       { display: inline; margin-right: 10px;}
+// #use-button hover
+// #main-content
