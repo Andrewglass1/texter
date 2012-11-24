@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(:version => 20121107165251) do
   create_table "responses", :force => true do |t|
     t.text     "body"
     t.string   "to"
-    t.string   "status"
+    t.string   "status",     :default => "pending"
     t.integer  "message_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "stations", :force => true do |t|

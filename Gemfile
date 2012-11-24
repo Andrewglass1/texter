@@ -6,6 +6,8 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'activerecord-postgresql-adapter'
+gem 'sqlite3'
 gem 'heroku'
 gem 'twilio-ruby'
 gem 'httparty'

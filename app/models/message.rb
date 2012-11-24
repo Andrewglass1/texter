@@ -4,8 +4,8 @@ class Message < ActiveRecord::Base
   belongs_to :station
   has_many :responses
 
-  after_initialize :setup_station
-  after_save       :process
+  after_create :setup_station
+  after_save   :process
 
   def self.create_from_params(params)
     Message.create(:body => params["Body"], :from => PhoneNumber.parse(params["From"]))
@@ -13,6 +13,7 @@ class Message < ActiveRecord::Base
 
   def process
     response = self.responses.new
+    response.set_to_and_body
     response.transmit
     response.save!
   end
