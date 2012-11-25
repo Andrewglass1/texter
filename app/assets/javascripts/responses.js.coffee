@@ -16,11 +16,15 @@ $ ->
     hideAll()
     $('#contact-content').show()
 
+  $('#hotkey-button').hover ->
+    hideAll()
+    $('#hotkey-content').show()
 
   hideAll = () ->
     $('#use-content').hide()
     $('#main-content').hide()
     $('#text-content').hide()
     $('#contact-content').hide()
+    $('#hotkey-content').hide()
 
 

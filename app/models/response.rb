@@ -14,8 +14,6 @@ class Response < ActiveRecord::Base
     end
   end
 
-
-
   def set_to_and_body
     self.to   = message.from
     if message.station
@@ -27,5 +25,9 @@ class Response < ActiveRecord::Base
 
   def self.text_instructions
     "text (202) 800-1876 with the name of a Metro station and you'll receive a reply with upcoming arrivals from this number"
+  end
+
+  def self.hot_key_set(hot_key, station_name)
+    "Thanks for using hot keys.  We'll text you with arrivals for #{station_name} when you send #{hot_key}"
   end
 end

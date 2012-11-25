@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121107165251) do
+ActiveRecord::Schema.define(:version => 20121124223710) do
+
+  create_table "hot_keys", :force => true do |t|
+    t.string   "phone_number"
+    t.string   "input"
+    t.integer  "station_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "messages", :force => true do |t|
     t.text     "body"

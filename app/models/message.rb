@@ -4,8 +4,7 @@ class Message < ActiveRecord::Base
   belongs_to :station
   has_many :responses
 
-  after_create :setup_station
-  after_save   :process
+  after_create :parse_message
 
   def self.create_from_params(params)
     Message.create(:body => params["Body"], :from => PhoneNumber.parse(params["From"]))
@@ -19,9 +18,37 @@ class Message < ActiveRecord::Base
   end
 
 private
-  def setup_station
-    if self.body
-      self.station = StationMatcher.new(body).match
+
+  def parse_message
+    if body.split(" ").first == "set"
+      create_hot_key
+    else
+      setup_station
     end
   end
+
+  def station_from_hot_key
+    hot_key = HotKey.where(:phone_number => from, :input => body).first
+    if hot_key.present? && hot_key.station_id.present?
+      self.station = Station.find(hot_key.station_id)
+      save!
+    end
+  end
+
+  def station_from_body
+    self.station = StationMatcher.new(body).match
+    save!
+  end
+
+  def setup_station
+    station_from_hot_key || station_from_body
+    process
+  end
+
+  def create_hot_key
+    station_text  = body.split(" to ")[1]
+    hot_key_input = body.split(" to ")[0].gsub("set ", "")
+    HotKey.create(input: hot_key_input, station_id: StationMatcher.new(station_text).match.id, phone_number: from)
+  end
+
 end
