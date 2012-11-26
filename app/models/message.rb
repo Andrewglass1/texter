@@ -20,7 +20,7 @@ class Message < ActiveRecord::Base
 private
 
   def parse_message
-    if body.split(" ").first == "set"
+    if body.split(" ").first.downcase == "set"
       create_hot_key
     else
       setup_station
@@ -47,7 +47,7 @@ private
 
   def create_hot_key
     station_text  = body.split(" to ")[1]
-    hot_key_input = body.split(" to ")[0].gsub("set ", "")
+    hot_key_input = body.split(" to ")[0].gsub("set ", "").gsub("Set ", "")
     HotKey.create(input: hot_key_input, station_id: StationMatcher.new(station_text).match.id, phone_number: from)
   end
 
