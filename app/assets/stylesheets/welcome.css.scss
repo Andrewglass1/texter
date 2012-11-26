@@ -2,10 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+p                 { font-size: 12px; }
+h1                { font-size: 18px; }
+.btn              { font-size: 12px; }
 body              { background: url("http://i.imgur.com/iN3kg.jpg") no-repeat center center fixed; }
 #content-holder   { width: 870px; height: 200px;}
-#welcome-hero     { margin-top: 150px; margin: 110px auto 0 auto; float: none; position: relative;}
+#welcome-hero     { margin: 80px auto 0 auto; float: none; position: relative;}
+#notice-hero      { color: white; background-color: #006DCC; padding-top: 20px; padding-bottom: 20px; margin: 30px auto 0 auto; float: none; position: relative;}
+
 #welcome-hero p   { margin-top: 20px; margin-bottom: 20px;}
 #use-content      { display: none;}
 #text-content     { display: none;}
@@ -16,5 +20,6 @@ body              { background: url("http://i.imgur.com/iN3kg.jpg") no-repeat ce
 #submit-number    { margin-bottom: 10px;}
 #andy             { position: absolute; bottom: 0px; left: 0px; margin-left: 10px;}
 #buttons li       { display: inline; }
+#buttons          { margin-top: 20px;}
 // #use-button hover
 // #main-content
