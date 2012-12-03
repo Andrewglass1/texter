@@ -51,7 +51,18 @@ private
       station = StationMatcher.new(station_text).match
     if station
       HotKey.create(input: hot_key_input.downcase, station_id: station.id, phone_number: from)
+    else
+      send_didnt_match_hotkey
     end
   end
+
+  def send_didnt_match_hotkey
+    response = self.responses.new
+    response.body = "stop being stupid ricky"
+    response.to   = from
+    response.transmit
+    response.save!
+  end
+
 
 end
