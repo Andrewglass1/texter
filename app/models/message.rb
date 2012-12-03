@@ -52,13 +52,13 @@ private
     if station
       HotKey.create(input: hot_key_input.downcase, station_id: station.id, phone_number: from)
     else
-      send_didnt_match_hotkey
+      send_didnt_match_hotkey(station_text)
     end
   end
 
-  def send_didnt_match_hotkey
+  def send_didnt_match_hotkey(station_mismatch)
     response = self.responses.new
-    response.body = "stop being stupid ricky"
+    response.body = "tried to make a hotkey for you, but couldnt match a station with  #{station_mismatch}"
     response.to   = from
     response.transmit
     response.save!
