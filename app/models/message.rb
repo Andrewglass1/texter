@@ -28,7 +28,7 @@ private
   end
 
   def station_from_hot_key
-    hot_key = HotKey.where(:phone_number => from, :input => body).first
+    hot_key = HotKey.match_hotkey(from, body)
     if hot_key.present? && hot_key.station_id.present?
       self.station = Station.find(hot_key.station_id)
       save!
@@ -46,9 +46,12 @@ private
   end
 
   def create_hot_key
-    station_text  = body.split(" to ")[1]
-    hot_key_input = body.split(" to ")[0].gsub("set ", "").gsub("Set ", "")
-    HotKey.create(input: hot_key_input, station_id: StationMatcher.new(station_text).match.id, phone_number: from)
+      station_text  = body.split(" to ")[1]
+      hot_key_input = body.split(" to ")[0].gsub("set ", "").gsub("Set ", "")
+      station = StationMatcher.new(station_text).match
+    if station
+      HotKey.create(input: hot_key_input.downcase, station_id: station.id, phone_number: from)
+    end
   end
 
 end

@@ -13,6 +13,20 @@
 
 ActiveRecord::Schema.define(:version => 20121124223710) do
 
+  create_table "articles", :force => true do |t|
+    t.string   "link"
+    t.text     "headline"
+    t.string   "author"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "entries", :force => true do |t|
+    t.text     "input"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "hot_keys", :force => true do |t|
     t.string   "phone_number"
     t.string   "input"
@@ -51,6 +65,15 @@ ActiveRecord::Schema.define(:version => 20121124223710) do
     t.string   "station_together2"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+  end
+
+  create_table "words", :force => true do |t|
+    t.text     "text"
+    t.string   "part_of_speech"
+    t.integer  "entry_id"
+    t.integer  "count"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
