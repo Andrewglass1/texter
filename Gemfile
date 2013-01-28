@@ -7,7 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'pg'
 gem 'activerecord-postgresql-adapter'
-gem 'sqlite3'
+# gem 'sqlite3'
 gem 'heroku'
 gem 'twilio-ruby'
 gem 'httparty'

@@ -10,4 +10,8 @@ class HotKey < ActiveRecord::Base
   def station
     Station.find(station_id)
   end
+
+  def self.match_hotkey(phone_number, input)
+    HotKey.where(:phone_number => phone_number, :input => input.downcase).first
+  end
 end
