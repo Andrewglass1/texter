@@ -47,6 +47,7 @@ class Station < ActiveRecord::Base
       when "Fort Totten"       then ["Ft Totten"]
       when "Federal Center SW" then ["Federal Center"]
       when "Woodley Park Zoo"  then ["Woodley", "Woodley Park", "Zoo", "Admo", "Adams Morgan"]
+      when "New York Avenue"   then ["noma", "Gallaudet University", "Gallaudet U"]
 
       else []
     end
