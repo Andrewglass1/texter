@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container        { position: relative; margin: 15px auto 0 auto; width: 800px;}
+.container        { position: relative; margin: 15px auto 0 auto; width: 800px; height: 100%;}
 p                 { font-size: 14px; }
 h1                { font-size: 18px; }
 .btn              { font-size: 12px; }
 body              { background: url("http://i.imgur.com/iN3kg.jpg") no-repeat center center fixed; }
 #content-holder   { width: 870px; height: 200px;}
-#welcome-hero     { margin: 80px auto 0 auto; float: none; position: relative;}
+#welcome-hero     { margin: 80px auto 80px auto; float: none; position: relative;}
 #notice-hero      { color: white; background-color: #006DCC; padding-top: 20px; padding-bottom: 20px; margin: 30px auto 0 auto; float: none; position: relative;}
 
 #welcome-hero p   { margin-top: 20px; margin-bottom: 20px;}
