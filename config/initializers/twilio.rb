@@ -1,11 +1,8 @@
-#path = File.join(Rails.root, "config/twilio.yml")
-#TWILIO_CONFIG = YAML.load(File.read(path))[Rails.env] || {'sid' => '', 'from' => '', 'token' => ''}
-
-twilio_sid = "AC93aea8b6a1786fdd69d19cc3eb36cf91"
-twilio_token = "443dbbdfd84e234b5b4daa23b6562039"
-$twilio_phone_number = "2028001876"
+twilio_sid = ENV['TWILIO_SID']
+twilio_token = ENV['TWILIO_TOKEN']
+$twilio_phone_number = ENV['TWILIO_NUMBER']
 
 $twilio = Twilio::REST::Client.new twilio_sid, twilio_token
 
-$admin_un = "metromike12345"
-$admin_pw = "mikeymetro12345"
+$admin_un = ENV['TEXTER_ADMIN_UN']
+$admin_pw = ENV['TEXTER_ADMIN_PW']

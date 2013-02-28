@@ -11,21 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121124223710) do
-
-  create_table "articles", :force => true do |t|
-    t.string   "link"
-    t.text     "headline"
-    t.string   "author"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "entries", :force => true do |t|
-    t.text     "input"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130216144229) do
 
   create_table "hot_keys", :force => true do |t|
     t.string   "phone_number"
@@ -41,6 +27,14 @@ ActiveRecord::Schema.define(:version => 20121124223710) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "station_id"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "image"
+    t.string   "caption"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "responses", :force => true do |t|
@@ -67,13 +61,13 @@ ActiveRecord::Schema.define(:version => 20121124223710) do
     t.datetime "updated_at",        :null => false
   end
 
-  create_table "words", :force => true do |t|
-    t.text     "text"
-    t.string   "part_of_speech"
-    t.integer  "entry_id"
-    t.integer  "count"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "videos", :force => true do |t|
+    t.string   "image"
+    t.string   "video_link"
+    t.string   "caption"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
