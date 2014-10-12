@@ -1,50 +1,12 @@
 <div class="container">
-  <% if notice.present? %>
-    <div id="notice-hero" class="hero-unit"><%= notice %></div>
-  <% end %>
-  <div id="welcome-hero" class="hero-unit">
-    <div id="content-holder">
-      <div id="main-content">
-        <h1>Welcome to Metro Texter</h1>
-        <p>Metro Texter sends you arrival times on Metro when you text it the name of a station.</p>
-        <p>Go ahead.  Try me.</p>
-      </div>
-      <div id="use-content">
-        <h1>Here Are The Deets</h1>
-        <p>Text (202) 800-1876 with the name of a Metro station and receive a reply with upcoming arrivals. </p>
-        <p>Yeah, it's that simple. </p>
-      </div>
-      <div id="text-content">
-        <h1>Wow You're Really Lazy</h1>
-        <p>I respect that. Enter your ten digit phone number and you'll receive instructions via text.</p>
-        <%= form_tag instructions_path %>
-        <%= text_field_tag "send_to", nil, :placeholder => "enter a ten digit phone number" %>
-        <%= submit_tag "hit me", :id =>"submit-number" %>
-      </div>
-      <div id="contact-content">
-        <h1>Let's Chat</h1>
-        <p>Feedback? Compliments? TED Talk Suggestions?  I'm lonely, lets do this.</p>
-        <%= link_to image_tag( 'google_256.png', :width => "64px"), 'mailto:andrewglass1@gmail.com',:target => '_blank' %>
-        <%= link_to image_tag( 'linkedin_256.png', :width => "64px"), 'http://www.linkedin.com/in/andrewglass1',:target => '_blank' %>
-        <%= link_to image_tag( 'facebook_256.png', :width => "64px"), 'http://www.facebook.com/andyglass1',:target => '_blank' %>
-        <%= link_to image_tag( 'twitter_256.png', :width => "64px"), 'https://twitter.com/andrewglass1',:target => '_blank' %>
+  <div class="phone-container">
+    <%= image_tag('iphone.png') %>
+  </div>
+  <div class="content-container">
+    <h2 class="header"> Metro Texter</h2>
+    <h2 class="sub-header">Metro Train Times via SMS</h2>
 
-      </div>
-      <div id="hotkey-content">
-        <h1>Set Hot Keys For Stations</h1>
-        <p>Text "set phrase to station-name" and Metro Texter will send you arrivals when you it receives that phrase from your number.</p>
-        <p> i.e. "set home to chinatown" will configure Metro Texter to send you Gallery Place arrivals when it receives 'home'</p>
-      </div>
-    </div>
-    <div>
-      <ul id="buttons">
-        <li><a id="use-button" class="btn btn-primary btn-large"><i class="icon-info-sign icon-white"></i> how to use >></a></li>
-        <li><a id="text-button" class="btn btn-primary btn-large"><i class="icon-bullhorn icon-white"></i> text me instructions >></a></li>
-        <li><a id="hotkey-button" class="btn btn-primary btn-large"><i class="icon-fire icon-white"></i> set hot keys >></a></li>
-        <li><a id="contact-button" class="btn btn-primary btn-large"><i class="icon-user icon-white"></i> contact me >></a></li>
-      </ul>
-    </div>
-  <%= link_to "crafted with love by andy glass", "http://andyglass.net/", :target => "_blank", :id => "andy" %>
-
+    <h2 class="instructions">Text the name of a Metro station to (202) 800-1876 and receive a reply with upcoming arrivals</h2>
+    <h2 class="instructions">Text "set PHRASE to NAME OF STATION" and Metro Texter will send you arrivals when you text it that phrase</h2>
   </div>
 </div>
