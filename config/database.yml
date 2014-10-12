@@ -21,17 +21,17 @@
 production:
   adapter: postgresql
   encoding: unicode
-  database: production
+  database: texter_production
   pool: 5
 
 development:
   adapter: postgresql
   encoding: unicode
-  database: development
+  database: texter_development
   pool: 5
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: test
+  database: texter_test
   pool: 5
