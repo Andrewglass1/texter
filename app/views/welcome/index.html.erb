@@ -4,9 +4,18 @@
   </div>
   <div class="content-container">
     <h2 class="header"> Metro Texter</h2>
-    <h2 class="sub-header">Metro Train Times via SMS</h2>
+    <h2 class="sub-header">DC Metro Train Times via SMS</h2>
 
     <h2 class="instructions">Text the name of a Metro station to (202) 800-1876 and receive a reply with upcoming arrivals</h2>
-    <h2 class="instructions">Text "set PHRASE to NAME OF STATION" and Metro Texter will send you arrivals when you text it that phrase</h2>
+    <h2 class="instructions">Text "set PHRASE to NAME OF STATION" and Metro Texter will send you arrivals when you send that phrase</h2>
+    <div class="form-container">
+      <%= form_tag({controller: "welcome", action: "send_instructions"}, method: "post", id: "instruction-form", remote: true) do %>
+        <%= text_field_tag :number, "", placeholder: "Enter a 10 digit phone number" %>
+        <%= submit_tag "TEXT ME INSTRUCTIONS", id: "submit-form" %>
+      <% end %>
+      <h2 id="thanks" class="instructions">Thanks. I'll text you.</h2>
+    </div>
   </div>
 </div>
+
+<a href="http://www.andyglass.net" class="credits">Crafted with love by Andy Glass</a>

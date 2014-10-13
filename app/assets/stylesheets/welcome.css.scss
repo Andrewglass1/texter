@@ -13,5 +13,24 @@ body              { background: url("http://i.imgur.com/iN3kg.jpg") no-repeat ce
 
 
 
-// #use-button hover
-// #main-content
+.form-container {margin-top: 30px;}
+#number{
+  background-color: transparent; border: none; font-size: 16px; display: block; padding: 5px 0;
+  color: white; border-radius: 0; border-bottom: 2px solid white; margin-bottom: 15px; letter-spacing: 1px; width: 300px;
+
+}
+
+#number:focus {
+  outline: none;
+}
+
+
+#thanks {display: none;}
+#submit-form {
+  border: 2px solid white; color: white;
+  background-color: transparent; font-size: 16px; display: block;
+  border-radius: 0; margin-bottom: 15px; letter-spacing: 1px; width: 300px;
+}
+
+
+.credits { position: absolute; color: white; bottom: 10px; right: 20px;}
