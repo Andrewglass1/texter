@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body              { background: url("http://i.imgur.com/iN3kg.jpg") no-repeat center center fixed; }
+
+body              { background: url(background.jpg) no-repeat center center fixed; }
 .container        { position: relative; margin: 15px auto 0 auto; width: 850px; height: 100%;}
 .phone-container  { width:320px; display: inline-block;}
 .content-container{ width:495px; display: inline-block; vertical-align: top; padding-top: 40px;
   .header { color: white; font-size: 80px;}
   .sub-header {color: white; font-size: 30px; margin-top: 20px;}
-  .instructions {color: white; font-size: 18px; line-height: 20px; margin-top: 30px;}
+  .instructions {color: white; font-size: 18px; line-height: 20px; margin-top: 30px; letter-spacing: 1px;}
 }
 
 
