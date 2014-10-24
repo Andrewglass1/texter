@@ -5,4 +5,8 @@ $(function() {
       $('#thanks').show()
     })
   });
+
+  $('#contact-text').bigtext();
+  $('#mobile-credit-text').bigtext();
+
 });

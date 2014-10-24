@@ -7,8 +7,7 @@ body              { background: url(background.jpg) no-repeat center center fixe
 .container        { width: 850px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; height: 580px;}
 .phone-container  { width:320px; display: inline-block;}
 .content-container{ width:495px; display: inline-block; vertical-align: top; padding-top: 40px;
-  .header { color: white; font-size: 80px;}
-  .sub-header {color: white; font-size: 30px; margin-top: 20px;}
+  #contact-text {color: white;}
   .instructions {color: white; font-size: 18px; line-height: 20px; margin-top: 30px; letter-spacing: 1px;}
 }
 
@@ -35,3 +34,23 @@ body              { background: url(background.jpg) no-repeat center center fixe
 
 
 .credits { position: fixed; color: white; bottom: 10px; right: 20px;}
+#mobile-credit-text {display: none;}
+
+
+// responsive
+
+@media(max-width:729px){
+  .container {width: 100%; position: relative;}
+  .phone-container {display: none;}
+  .content-container {width: 100%;}
+  .form-container {
+    width: 100%;
+    #submit-form{width: 100%;}
+    #number{width: 100%; border: 2px solid white; color: white;}
+  }
+  .credits {display: none;;}
+  #mobile-credit-text {display: block;
+    a{ color: white; &:hover {text-decoration: none;}}
+  }
+
+}
