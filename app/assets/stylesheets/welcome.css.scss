@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+a, p, div, h1, h2, h3, input {font-family: 'Cabin Condensed', sans-serif;}
 body              { background: url(background.jpg) no-repeat center center fixed; }
 .container        { width: 850px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; height: 580px;}
 .phone-container  { width:320px; display: inline-block;}
