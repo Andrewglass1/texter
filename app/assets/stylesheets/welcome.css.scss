@@ -11,9 +11,19 @@ body              {
 	-o-background-size: cover;
 	background-size: cover;
 }
-.container        { width: 850px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; height: 580px;}
-.phone-container  { width:320px; display: inline-block;}
-.content-container{ width:495px; display: inline-block; vertical-align: top; padding-top: 40px;
+.container        { width: 950px; margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0; height: 580px;}
+.phone-container  {
+  width:450px; display: inline-block;
+  .screen-container {
+    width: 290px;
+    position: absolute;
+    background-color: white;
+    top: 80px;
+    left: 40px;
+    border-radius: 2px;
+  }
+}
+.content-container{ width:450px; display: inline-block; vertical-align: top; margin-top: 40px;
   #contact-text {color: white;}
   .instructions {color: white; font-size: 18px; line-height: 20px; margin-top: 30px; letter-spacing: 1px;}
 }
@@ -31,7 +41,7 @@ body              {
   outline: none;
 }
 
-
+.iphone {width:375px;}
 #thanks {display: none;}
 #submit-form {
   border: 2px solid white; color: white;
@@ -44,9 +54,19 @@ body              {
 #mobile-credit-text {display: none;}
 
 
+//messages
 .messages-wrapper {
-  display: none;
-  position: relative;
+  &.desktop{
+    position: relative;
+    padding-top: 10px;
+    height: 450px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 3px;
+  }
+  &.mobile {
+    display: none;
+  }
 }
 .message {
   border-radius: 20px 20px 20px 20px;
@@ -93,6 +113,25 @@ body              {
   -ms-filter: "FlipH";
 }
 
+header {
+  color: #2095FE;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-bottom: 1px solid #bbb;
+  box-shadow: 0 1px 2px rgba(1,1,1,0.2);
+  height: 60px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 58px;
+  white-space: nowrap;
+  border-radius: 3px 3px 0 0;
+
+}
+header h2 {
+  font-weight: bold;
+  color: #111111;
+}
+
 // responsive
 
 @media(max-width:729px){
@@ -112,5 +151,5 @@ body              {
     a{ color: white; &:hover {text-decoration: none;}}
   }
 
-  .messages-wrapper{display: block;}
+  .messages-wrapper.mobile{display: block;}
 }

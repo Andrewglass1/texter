@@ -1,7 +1,28 @@
 <div class="container">
 
   <div class="phone-container">
-    <%= image_tag('iphone.png') %>
+    <%= image_tag('iphone.png', class: "iphone") %>
+
+    <div class="screen-container">
+      <header><h2>(202) 800-1876</h2></header>
+      <div class="messages-wrapper desktop">
+        <div class="message to">Gallery Place</div>
+        <div class="message from">
+          RED to Silver Spring BOARDING<br>
+          YELLOW to Mt Vernon Square in 2 MIN<br>
+          YELLOW to Franconia-Springfield in 5 MIN<br>
+        </div>
+        <div class="message to">Set home to Metro Center</div>
+        <div class="message from">
+          Thanks for using hot keys.  We'll text you with arrivals for Metro Center when you send 'home'
+        </div>
+        <div class="message to">Home</div>
+        <div class="message from">
+          RED to NoMa in 2 MIN<br>
+          SILVER to Reston East in 5 MIN<br>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="content-container">
@@ -12,7 +33,7 @@
 
     <h2 class="instructions">Text the name of a Metro station to (202) 800-1876 and receive a reply with upcoming arrivals</h2>
 
-    <div class="messages-wrapper">
+    <div class="messages-wrapper mobile">
       <div class="message to">Gallery Place</div>
       <div class="message from">
         RED to Silver Spring BOARDING<br>
@@ -23,7 +44,7 @@
 
     <h2 class="instructions">Text "set PHRASE to NAME OF STATION" and Metro Texter will send you arrivals when you send that phrase</h2>
 
-    <div class="messages-wrapper">
+    <div class="messages-wrapper mobile">
       <div class="message to">Set home to Metro Center</div>
       <div class="message from">
         Thanks for using hot keys.  We'll text you with arrivals for Metro Center when you send 'home'
