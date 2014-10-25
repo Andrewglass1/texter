@@ -98,14 +98,17 @@ body              {
 @media(max-width:729px){
   .container {width: 100%; position: relative;}
   .phone-container {display: none;}
-  .content-container {width: 100%;}
-  .form-container {
+  .content-container {
     width: 100%;
+    .instructions{margin-bottom: 30px;}
+  }
+  .form-container {
+    width: 100%; margin: 35px 0;
     #submit-form{width: 100%;}
     #number{width: 100%; border: 2px solid white; color: white;}
   }
-  .credits {display: none;;}
-  #mobile-credit-text {display: block;
+  .credits {display: none;}
+  #mobile-credit-text {display: block; margin-bottom: 35px; text-align: center;
     a{ color: white; &:hover {text-decoration: none;}}
   }
 
