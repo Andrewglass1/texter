@@ -28,6 +28,6 @@ class Response < ActiveRecord::Base
   end
 
   def self.hot_key_set(hot_key, station_name)
-    "Thanks for using hot keys.  We'll text you with arrivals for #{station_name} when you send #{hot_key}"
+    "Thanks for using hot keys.  We'll text you with arrivals for #{station_name} when you send '#{hot_key}'"
   end
 end
