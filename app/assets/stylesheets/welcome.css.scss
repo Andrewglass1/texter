@@ -51,12 +51,12 @@ body              { background: url(background.jpg) no-repeat center center fixe
 .message.to {
   background-color: #2095FE;
   color: #fff;
-  margin-left: 80px;
+  margin-left: 15%;
 }
 .message.from {
   background-color: #E5E4E9;
   color: #363636;
-  margin-right: 80px;
+  margin-right: 15%;
 }
 .message.to + .message.to,
 .message.from + .message.from {
