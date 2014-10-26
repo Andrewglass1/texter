@@ -65,7 +65,7 @@ body              {
     border-radius: 3px;
   }
   &.mobile {
-    display: none;
+    display: none; overflow: hidden;
   }
 }
 .message {
@@ -144,7 +144,7 @@ header h2 {
   .form-container {
     width: 100%; margin: 35px 0;
     #submit-form{width: 100%;}
-    #number{width: 100%; border: 2px solid white; color: white;}
+    #number{width: 100%; border: 2px solid white; color: white; text-align: center;}
   }
   .credits {display: none;}
   #mobile-credit-text {display: block; margin-bottom: 35px; text-align: center;
