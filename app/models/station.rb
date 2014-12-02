@@ -8,7 +8,7 @@ class Station < ActiveRecord::Base
 
   def fetch_times
     codes = [code, station_together1, station_together2].compact.join(",")
-	  response = HTTParty.get("http://api.wmata.com/StationPrediction.svc/json/GetPrediction/#{codes}", :query => { :api_key => $wmata_key })
+	  response = HTTParty.get("http://api.wmata.com/StationPrediction.svc/json/GetPrediction/#{codes}", :query => { :api_key => $wmata_key, :"subscription-key" => $wmata_key })
     response.parsed_response['Trains']
   end
 
@@ -54,7 +54,7 @@ class Station < ActiveRecord::Base
   end
 
 private
-  
+
   def train_arrival(line, dest, arriving)
     valid = true
 
@@ -73,8 +73,3 @@ private
     input.downcase.gsub(".","")
   end
 end
-
-
-
-
-
