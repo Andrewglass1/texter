@@ -6,7 +6,7 @@ $(function() {
     })
   });
 
-  $('#contact-text').bigtext();
-  $('#mobile-credit-text').bigtext();
+  // $('#contact-text').bigtext();
+  // $('#mobile-credit-text').bigtext();
 
 });
